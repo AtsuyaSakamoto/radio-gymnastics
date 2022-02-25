@@ -14,23 +14,19 @@
         <div class="park-card" @click="goPlay">公園⑧</div>
         <div class="park-card" @click="goPlay">公園⑨</div>
       </div>
-      <div class="btn-wrapper">
-        <button class="back-btn" @click="backPage">戻る</button>
-        <button class="ranking-btn" @click="goRanking">ランキング</button>
-        <button class="toggle-btn" @click="changePlaceToggle">
-          切り替えボタンどこに置こう
-        </button>
-      </div>
     </div>
     <div v-else>
-      <div>日本地図</div>
-      <div class="btn-wrapper">
-        <button class="back-btn" @click="backPage">戻る</button>
-        <button class="ranking-btn" @click="goRanking">ランキング</button>
-        <button class="toggle-btn" @click="changePlaceToggle">
-          切り替えボタンどこに置こう
-        </button>
-      </div>
+      <div>日本地図(イメージ)</div>
+      <img
+        src="https://community.alteryx.com/t5/image/serverpage/image-id/167070iBB619376892CF7DA/image-size/medium?v=v2&px=400"
+      />
+    </div>
+    <div class="btn-wrapper">
+      <button class="back-btn" @click="backPage">戻る</button>
+      <button class="ranking-btn" @click="goRanking">ランキング</button>
+      <button class="toggle-btn" @click="changePlaceToggle">
+        切り替えボタンどこに置こう
+      </button>
     </div>
   </div>
 </template>
