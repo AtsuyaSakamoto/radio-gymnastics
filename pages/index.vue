@@ -1,7 +1,9 @@
 <template>
   <div>
     <h1 class="title">アプリタイトル</h1>
-    <div class="test">ここに写真</div>
+    <div class="img-wrapper">
+      <img src="title_logo.png" class="title-img" />
+    </div>
     <div class="btn-wrapper">
       <button class="start-btn" @click="goPlaces">START</button>
     </div>
@@ -25,17 +27,20 @@ export default defineComponent({
 <style lang="scss" scoped>
 .title {
   text-align: center;
+  margin-top: 50px;
 }
-.test {
-  width: 300px;
-  height: 500px;
-  background-color: pink;
-  margin: 0 auto;
+.img-wrapper {
+  text-align: center;
+  margin-top: 50px;
+  .title-img {
+    width: 350px;
+    height: 250px;
+  }
 }
 .btn-wrapper {
   text-align: center;
   .start-btn {
-    margin-top: 80px;
+    margin-top: 100px;
     width: 200px;
     height: 50px;
     border: 1px solid black;
