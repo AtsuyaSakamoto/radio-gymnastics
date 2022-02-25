@@ -1,5 +1,8 @@
 <template>
-  <Nuxt class="container" />
+  <div>
+    <Nuxt class="container" />
+    <Footer></Footer>
+  </div>
 </template>
 
 <script lang="ts">

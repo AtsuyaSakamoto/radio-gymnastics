@@ -4,7 +4,16 @@
     <div v-if="placeToggle">
       <div class="card-position">
         <!-- TODOここはv-forを使ってキレイに書く -->
-        <div class="park-card" @click="goPlay">公園①</div>
+        <div class="park-card" @click="goPlay">
+          <!-- <img
+            src="https://static.travel.co.jp/images/dom/kyoto/img_main-left.jpg"
+            width="100px"
+            height="100px"
+          /> -->
+
+          公園①
+        </div>
+
         <div class="park-card" @click="goPlay">公園②</div>
         <div class="park-card" @click="goPlay">公園③</div>
         <div class="park-card" @click="goPlay">公園④</div>
@@ -103,7 +112,7 @@ export default defineComponent({
       letter-spacing: 0.12em;
     }
     .toggle-btn {
-      margin-top: 80px;
+      margin-top: 50px;
       height: 50px;
       border: 1px solid black;
       border-radius: 40px;
