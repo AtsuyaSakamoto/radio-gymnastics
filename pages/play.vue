@@ -20,7 +20,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style lang="scss" scoped>
 .movie {
   margin: 0 auto;
   width: 300px;

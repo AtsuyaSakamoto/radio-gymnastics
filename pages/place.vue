@@ -31,7 +31,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style lang="scss" scoped>
 .contents {
   max-width: 390px;
   margin: 0 auto;
