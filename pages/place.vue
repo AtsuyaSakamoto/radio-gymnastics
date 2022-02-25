@@ -6,30 +6,39 @@
         <!-- TODOここはv-forを使ってキレイに書く -->
         <div class="park-card" @click="goPlay">
           <img src="park1.png" class="title-img" />
+          <div>place1</div>
         </div>
         <div class="park-card" @click="goPlay">
           <img src="park2.png" class="title-img" />
+          <div>place2</div>
         </div>
         <div class="park-card" @click="goPlay">
           <img src="park3.png" class="title-img" />
+          <div>place3</div>
         </div>
         <div class="park-card" @click="goPlay">
           <img src="park4.png" class="title-img" />
+          <div>place4</div>
         </div>
         <div class="park-card" @click="goPlay">
           <img src="park5.png" class="title-img" />
+          <div>place5</div>
         </div>
         <div class="park-card" @click="goPlay">
           <img src="park6.png" class="title-img" />
+          <div>place6</div>
         </div>
         <div class="park-card" @click="goPlay">
           <img src="park7.png" class="title-img" />
+          <div>place7</div>
         </div>
         <div class="park-card" @click="goPlay">
           <img src="park8.png" class="title-img" />
+          <div>place8</div>
         </div>
         <div class="park-card" @click="goPlay">
           <img src="park9.png" class="title-img" />
+          <div>place9</div>
         </div>
       </div>
     </div>
@@ -81,6 +90,8 @@ export default defineComponent({
 <style lang="scss" scoped>
 .contents {
   text-align: center;
+  background-color: yellow;
+  overflow: hidden;
   .card-position {
     margin-top: 50px;
     display: flex;
@@ -91,7 +102,11 @@ export default defineComponent({
   .park-card {
     width: 100px;
     height: 100px;
-    background-color: red;
+    border-radius: 10px;
+    .title-img {
+      border-radius: 10px;
+    }
+    // background-color: red;
   }
   .btn-wrapper {
     text-align: center;

@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">footerつけるなら作成</div>
+  <div class="footer">© FURYU Corporation. At CASIS. All Rights Reserved.</div>
 </template>
 
 <script lang="ts">
@@ -11,9 +11,12 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .footer {
-  margin-top: 30px;
+  padding-top: 40px;
   width: 100%;
-  height: 80px;
+  height: 70px;
   background-color: lightcoral;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
 }
 </style>

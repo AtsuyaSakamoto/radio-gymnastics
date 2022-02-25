@@ -30,14 +30,14 @@ export default defineComponent({
 <style lang="scss" scoped>
 .contents {
   background-color: yellow;
-
+  overflow: hidden;
   .title {
     text-align: center;
-    padding-top: 50px;
+    padding-top: 40px;
   }
   .img-wrapper {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 40px;
     .title-img {
       width: 350px;
       height: 250px;
@@ -54,6 +54,7 @@ export default defineComponent({
   .btn-wrapper {
     text-align: center;
     margin-top: -120px;
+    padding-bottom: 30px;
     .start-btn {
       width: 200px;
       height: 50px;

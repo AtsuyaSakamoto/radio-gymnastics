@@ -1,7 +1,9 @@
 <template>
   <div>
     <h1 class="title">ラジオ体操を始める</h1>
-    <div class="movie"><img src="~assets/Avatar.gif" class="gif" /></div>
+    <div class="movie">
+      <img src="~assets/Avatar.gif" class="freezeframe" />
+    </div>
     <div
       class="btn"
       :class="{ playback: isActive }"
@@ -13,9 +15,16 @@
 <script lang="ts">
 import { defineComponent, ref, useRouter } from '@nuxtjs/composition-api'
 import sound from '../assets/sound.mp3'
+const Freezeframe = require('freezeframe')
 
 export default defineComponent({
   setup() {
+    const ff = new Freezeframe({
+      // trigger: false,
+    })
+
+    ff.stop()
+
     const router = useRouter()
     const goPlay = () => {
       router.push('/play')
@@ -26,11 +35,14 @@ export default defineComponent({
       if (isActive.value === true) {
         isActive.value = false
         audio.pause()
+        ff.stop()
       } else {
         isActive.value = true
         audio.play()
+        ff.start()
       }
     }
+
     return { goPlay, isActive, isActiveToggle }
   },
 })
@@ -40,21 +52,21 @@ export default defineComponent({
 .title {
   text-align: center;
 }
-.gif {
+.freezeframe {
   width: 300px;
   height: 500px;
 }
 .movie {
   margin: 0 auto;
   width: 300px;
-  height: 600px;
+  height: 500px;
   background-color: yellow;
   position: relative;
 }
 .btn {
   position: absolute;
   top: 10px;
-  left: 140px;
+  left: 130px;
   width: 100px; /* 幅を指定 */
   height: 60px; /* 高さを指定 */
   background: #f00; /* 背景色を赤に指定 */
