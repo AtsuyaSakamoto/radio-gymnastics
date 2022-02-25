@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1 class="contents">ラジオ体操を始める</h1>
-    <div class="movie">ラジオ体操動画</div>
+    <h1 class="title">ラジオ体操を始める</h1>
+    <div class="movie">ラジオ体操の表示箇所</div>
   </div>
 </template>
 
@@ -21,6 +21,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.title {
+  text-align: center;
+}
 .movie {
   margin: 0 auto;
   width: 300px;

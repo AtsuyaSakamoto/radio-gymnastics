@@ -1,74 +1,121 @@
 <template>
   <div class="contents">
     <h1>会場一覧</h1>
-    <div class="card-position">
-      <div class="park-card" @click="goPlay">公園①</div>
-      <div class="park-card">公園②</div>
-      <div class="park-card">公園③</div>
-      <div class="park-card">公園④</div>
-      <div class="park-card">公園⑤</div>
-      <div class="park-card">公園⑥</div>
-      <div class="park-card">公園⑦</div>
-      <div class="park-card">公園⑧</div>
-      <div class="park-card">公園⑨</div>
+    <div v-if="placeToggle">
+      <div class="card-position">
+        <!-- TODOここはv-forを使ってキレイに書く -->
+        <div class="park-card" @click="goPlay">公園①</div>
+        <div class="park-card" @click="goPlay">公園②</div>
+        <div class="park-card" @click="goPlay">公園③</div>
+        <div class="park-card" @click="goPlay">公園④</div>
+        <div class="park-card" @click="goPlay">公園⑤</div>
+        <div class="park-card" @click="goPlay">公園⑥</div>
+        <div class="park-card" @click="goPlay">公園⑦</div>
+        <div class="park-card" @click="goPlay">公園⑧</div>
+        <div class="park-card" @click="goPlay">公園⑨</div>
+      </div>
+      <div class="btn-wrapper">
+        <button class="back-btn" @click="backPage">戻る</button>
+        <button class="ranking-btn" @click="goRanking">ランキング</button>
+        <button class="toggle-btn" @click="changePlaceToggle">
+          切り替えボタンどこに置こう
+        </button>
+      </div>
     </div>
-    <button class="back-btn">戻る</button>
-    <button class="ranking-btn">ランキング</button>
+    <div v-else>
+      <div>日本地図</div>
+      <div class="btn-wrapper">
+        <button class="back-btn" @click="backPage">戻る</button>
+        <button class="ranking-btn" @click="goRanking">ランキング</button>
+        <button class="toggle-btn" @click="changePlaceToggle">
+          切り替えボタンどこに置こう
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, useRouter } from '@nuxtjs/composition-api'
+import { defineComponent, useRouter, ref } from '@nuxtjs/composition-api'
 export default defineComponent({
   setup() {
     const router = useRouter()
     const goPlay = () => {
       router.push('/play')
     }
+    const backPage = () => {
+      router.push('/')
+    }
+    const goRanking = () => {
+      router.push('/ranking')
+    }
 
-    return { goPlay }
+    const placeToggle = ref<boolean>(true)
+    const changePlaceToggle = () => {
+      if (placeToggle.value === true) {
+        placeToggle.value = false
+      } else {
+        placeToggle.value = true
+      }
+    }
+
+    return { goPlay, backPage, goRanking, placeToggle, changePlaceToggle }
   },
 })
 </script>
 
 <style lang="scss" scoped>
 .contents {
-  max-width: 390px;
-  margin: 0 auto;
   text-align: center;
-}
-.card-position {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px 20px;
-}
-.park-card {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-}
-.back-btn {
-  margin-top: 80px;
-  width: 120px;
-  height: 50px;
-  border: 1px solid black;
-  border-radius: 40px;
-  background-color: blue;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 0.12em;
-}
-.ranking-btn {
-  margin-top: 80px;
-  width: 120px;
-  height: 50px;
-  border: 1px solid black;
-  border-radius: 40px;
-  background-color: blue;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 0.12em;
+  .card-position {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px 20px;
+  }
+  .park-card {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+  .btn-wrapper {
+    text-align: center;
+    .back-btn {
+      margin-top: 80px;
+      width: 120px;
+      height: 50px;
+      border: 1px solid black;
+      border-radius: 40px;
+      background-color: blue;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+    }
+    .ranking-btn {
+      margin-left: 30px;
+      margin-top: 80px;
+      width: 120px;
+      height: 50px;
+      border: 1px solid black;
+      border-radius: 40px;
+      background-color: blue;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+    }
+    .toggle-btn {
+      margin-top: 80px;
+      height: 50px;
+      border: 1px solid black;
+      border-radius: 40px;
+      background-color: yellow;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+    }
+  }
 }
 </style>
