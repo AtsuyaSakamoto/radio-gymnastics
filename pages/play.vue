@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="title">ラジオ体操を始める</h1>
-    <div class="movie">ラジオ体操の表示箇所</div>
+    <div class="movie"><img src="~assets/Avatar.gif" class="gif" /></div>
     <div
       class="btn"
       :class="{ playback: isActive }"
@@ -21,12 +21,16 @@ export default defineComponent({
       router.push('/play')
     }
     const isActive = ref<boolean>(false)
+    const audio = new Audio(sound)
     const isActiveToggle = () => {
-      isActive.value = !isActive.value
+      if (isActive.value === true) {
+        isActive.value = false
+        audio.pause()
+      } else {
+        isActive.value = true
+        audio.play()
+      }
     }
-    // const audio = new Audio(sound)
-    // audio.play()
-
     return { goPlay, isActive, isActiveToggle }
   },
 })
@@ -35,6 +39,10 @@ export default defineComponent({
 <style lang="scss" scoped>
 .title {
   text-align: center;
+}
+.gif {
+  width: 300px;
+  height: 500px;
 }
 .movie {
   margin: 0 auto;
