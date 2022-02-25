@@ -1,0 +1,30 @@
+<template>
+  <div>
+    <h1 class="contents">ラジオ体操を始める</h1>
+    <div class="movie">ラジオ体操動画</div>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref, useRouter } from '@nuxtjs/composition-api'
+export default defineComponent({
+  setup() {
+    const test = ref<string>('こんにちは')
+    const router = useRouter()
+    const goPlay = () => {
+      router.push('/play')
+    }
+
+    return { test, goPlay }
+  },
+})
+</script>
+
+<style>
+.movie {
+  margin: 0 auto;
+  width: 300px;
+  height: 600px;
+  background-color: yellow;
+}
+</style>
