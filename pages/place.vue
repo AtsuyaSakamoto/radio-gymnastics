@@ -5,23 +5,32 @@
       <div class="card-position">
         <!-- TODOここはv-forを使ってキレイに書く -->
         <div class="park-card" @click="goPlay">
-          <!-- <img
-            src="https://static.travel.co.jp/images/dom/kyoto/img_main-left.jpg"
-            width="100px"
-            height="100px"
-          /> -->
-
-          公園①
+          <img src="park1.png" class="title-img" />
         </div>
-
-        <div class="park-card" @click="goPlay">公園②</div>
-        <div class="park-card" @click="goPlay">公園③</div>
-        <div class="park-card" @click="goPlay">公園④</div>
-        <div class="park-card" @click="goPlay">公園⑤</div>
-        <div class="park-card" @click="goPlay">公園⑥</div>
-        <div class="park-card" @click="goPlay">公園⑦</div>
-        <div class="park-card" @click="goPlay">公園⑧</div>
-        <div class="park-card" @click="goPlay">公園⑨</div>
+        <div class="park-card" @click="goPlay">
+          <img src="park2.png" class="title-img" />
+        </div>
+        <div class="park-card" @click="goPlay">
+          <img src="park3.png" class="title-img" />
+        </div>
+        <div class="park-card" @click="goPlay">
+          <img src="park4.png" class="title-img" />
+        </div>
+        <div class="park-card" @click="goPlay">
+          <img src="park5.png" class="title-img" />
+        </div>
+        <div class="park-card" @click="goPlay">
+          <img src="park6.png" class="title-img" />
+        </div>
+        <div class="park-card" @click="goPlay">
+          <img src="park7.png" class="title-img" />
+        </div>
+        <div class="park-card" @click="goPlay">
+          <img src="park8.png" class="title-img" />
+        </div>
+        <div class="park-card" @click="goPlay">
+          <img src="park9.png" class="title-img" />
+        </div>
       </div>
     </div>
     <div v-else>
