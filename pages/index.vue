@@ -60,7 +60,7 @@ export default defineComponent({
       height: 50px;
       border: 1px solid black;
       border-radius: 40px;
-      background-color: blue;
+      background-color: skyblue;
       color: white;
       font-size: 16px;
       font-weight: bold;
