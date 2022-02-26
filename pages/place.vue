@@ -46,13 +46,8 @@
       <div class="back-btn" @click="backPage">
         <img src="kaijou_back.png" width="120px" height="50px" />
       </div>
-      <div class="ranking-btn">
-        <img
-          src="kaijou_ranking.png"
-          width="120px"
-          height="50px"
-          @click="goRanking"
-        />
+      <div>
+        <img class="ranking-btn" src="kaijou_ranking.png" @click="goRanking" />
         <!-- <button class="ranking-btn" @click="goRanking">ランキング</button> -->
       </div>
     </div>
@@ -161,7 +156,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .contents {
   text-align: center;
-  background-color: yellow;
+  background-color: #f1db5a;
   overflow: hidden;
   li {
     list-style: none;
@@ -209,7 +204,7 @@ export default defineComponent({
       margin-top: 70px;
       width: 120px;
       height: 50px;
-      border: 1px solid black;
+      border: 0px solid black;
       border-radius: 40px;
       background-color: skyblue;
       color: white;
@@ -219,16 +214,9 @@ export default defineComponent({
     }
     .ranking-btn {
       margin-left: 30px;
-      margin-top: 70px;
-      width: 120px;
-      height: 50px;
-      border: 1px solid black;
-      border-radius: 40px;
-      background-color: skyblue;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      letter-spacing: 0.12em;
+      margin-top: 58px;
+      width: 129px;
+      height: 62px;
     }
   }
 }

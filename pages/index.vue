@@ -8,7 +8,7 @@
       <img src="titile_illust.png" class="illust-img" />
     </div>
     <div class="btn-wrapper">
-      <button class="start-btn" @click="goPlaces">START</button>
+      <img class="start-btn" src="taisou_start.png" @click="goPlaces" />
     </div>
   </div>
 </template>
@@ -29,7 +29,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .contents {
-  background-color: yellow;
+  background-color: #f1db5a;
   overflow: hidden;
   .title {
     text-align: center;
@@ -45,26 +45,19 @@ export default defineComponent({
   }
   .img-wrapper-second {
     text-align: center;
-    margin-top: -120px;
+    margin-top: -220px;
     .illust-img {
-      width: 300px;
-      height: 500px;
+      width: 350px;
+      height: 700px;
     }
   }
   .btn-wrapper {
     text-align: center;
-    margin-top: -80px;
-    padding-bottom: 70px;
+    margin-top: -180px;
+    padding-bottom: 60px;
     .start-btn {
-      width: 200px;
-      height: 50px;
-      border: 1px solid black;
-      border-radius: 40px;
-      background-color: skyblue;
-      color: white;
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 0.12em;
+      width: 150px;
+      height: 60px;
     }
   }
 }

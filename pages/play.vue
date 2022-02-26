@@ -1,8 +1,11 @@
 <template>
   <div class="contents">
     <h1 class="title"></h1>
-    <div class="movie">
+    <div v-if="isActive" class="movie">
       <img src="~assets/Avatar.gif" class="freezeframe" />
+    </div>
+    <div v-else class="movie">
+      <img src="StillAvatar.png" class="freezeframe" />
     </div>
     <div
       class="btn"
@@ -14,17 +17,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, useRouter } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  onBeforeMount,
+  ref,
+  useRouter,
+} from '@nuxtjs/composition-api'
 import sound from '../assets/sound.mp3'
-const Freezeframe = require('Freezeframe')
+// import { VueFreezeframe } from 'vue-freezeframe'
+// import Freezeframe from ''
+// const Freezeframe = require('Freezeframe')
 
 export default defineComponent({
   setup() {
-    const ff = new Freezeframe({
-      // trigger: false,
-    })
-
-    ff.stop()
+    // onBeforeMount(() => {
+    //   const ff = new VueFreezeframe({
+    //     selector: '.freezeframe',
+    //     trigger: 'click',
+    //   })
+    //   ff.stop()
+    // })
 
     const router = useRouter()
     const goPlay = () => {
@@ -36,11 +48,11 @@ export default defineComponent({
       if (isActive.value === true) {
         isActive.value = false
         audio.pause()
-        ff.stop()
+        // ff.stop()
       } else {
         isActive.value = true
         audio.play()
-        ff.start()
+        // ff.start()
       }
     }
     const pushStamp = () => {
@@ -60,7 +72,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .contents {
   background-image: url('/taisou.png');
-  background-color: yellow;
+  background-color: #f1db5a;
   background-size: cover;
   overflow: hidden;
   .title {
@@ -70,8 +82,9 @@ export default defineComponent({
 }
 .freezeframe {
   width: 300px;
-  height: 500px;
-  padding-top: 6 0px;
+  height: 650px;
+  margin-top: -30px;
+  margin-left: -10px;
 }
 .movie {
   margin: 0 auto;
