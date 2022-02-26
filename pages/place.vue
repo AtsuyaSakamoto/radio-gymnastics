@@ -16,7 +16,16 @@
     <div v-if="placeToggle">
       <div class="card-position">
         <!-- TODOここはv-forを使ってキレイに書く -->
-        <div class="park-card" @click="goPlay">
+        <li
+          v-for="place in placeList"
+          :key="place.id"
+          class="park-card"
+          @click="goPlay"
+        >
+          <img :src="place.imageUrl" class="title-img" />
+          <div>{{ place.name }}</div>
+        </li>
+        <!-- <div class="park-card" @click="goPlay">
           <img src="park1.png" class="title-img" />
           <div>place1</div>
         </div>
@@ -35,8 +44,8 @@
         <div class="park-card" @click="goPlay">
           <img src="park5.png" class="title-img" />
           <div>place5</div>
-        </div>
-        <div class="park-card" @click="goPlay">
+        </div> -->
+        <!-- <div class="park-card" @click="goPlay">
           <img src="park6.png" class="title-img" />
           <div>place6</div>
         </div>
@@ -51,7 +60,7 @@
         <div class="park-card" @click="goPlay">
           <img src="park9.png" class="title-img" />
           <div>place9</div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div v-else>
@@ -85,7 +94,59 @@ export default defineComponent({
     const goRanking = () => {
       router.push('/ranking')
     }
-
+    type PlaceList = {
+      id: number
+      name: string
+      imageUrl: string
+    }
+    // このplaceListがFireStoreから受け取れればOK
+    const placeList = ref<PlaceList[]>([
+      {
+        id: 1,
+        name: 'hoge',
+        imageUrl: 'park1.png',
+      },
+      {
+        id: 2,
+        name: 'hogehoge',
+        imageUrl: 'park2.png',
+      },
+      {
+        id: 3,
+        name: 'hogehoge',
+        imageUrl: 'park3.png',
+      },
+      {
+        id: 4,
+        name: 'hogehoge',
+        imageUrl: 'park4.png',
+      },
+      {
+        id: 5,
+        name: 'hogehoge',
+        imageUrl: 'park4.png',
+      },
+      {
+        id: 6,
+        name: 'hogehoge',
+        imageUrl: 'park4.png',
+      },
+      {
+        id: 7,
+        name: 'hogehoge',
+        imageUrl: 'park4.png',
+      },
+      {
+        id: 8,
+        name: 'hogehoge',
+        imageUrl: 'park4.png',
+      },
+      {
+        id: 9,
+        name: 'hogehoge',
+        imageUrl: 'park4.png',
+      },
+    ])
     const placeToggle = ref<boolean>(true)
     const changePlaceToggle = () => {
       if (placeToggle.value === true) {
@@ -95,7 +156,14 @@ export default defineComponent({
       }
     }
 
-    return { goPlay, backPage, goRanking, placeToggle, changePlaceToggle }
+    return {
+      goPlay,
+      backPage,
+      goRanking,
+      placeToggle,
+      changePlaceToggle,
+      placeList,
+    }
   },
 })
 </script>
@@ -105,6 +173,9 @@ export default defineComponent({
   text-align: center;
   background-color: yellow;
   overflow: hidden;
+  li {
+    list-style: none;
+  }
   .flex {
     display: flex;
   }
