@@ -130,7 +130,7 @@ export default defineComponent({
 .end-message {
   position: relative;
   left: 10px;
-  top: -300px;
+  top: -600px;
 //  width: 360px;
 //  height: 574px;
 }
