@@ -1,8 +1,11 @@
 <template>
   <div class="contents">
     <h1 class="title"></h1>
-    <div class="movie">
+    <div v-if="isActive" class="movie">
       <img src="~assets/Avatar.gif" class="freezeframe" />
+    </div>
+    <div v-else class="movie">
+      <img src="StillAvatar.png" class="freezeframe" />
     </div>
     <div
       class="btn"
@@ -79,8 +82,9 @@ export default defineComponent({
 }
 .freezeframe {
   width: 300px;
-  height: 500px;
-  padding-top: 6 0px;
+  height: 650px;
+  margin-top: -30px;
+  margin-left: -10px;
 }
 .movie {
   margin: 0 auto;
