@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>ランキングページ</h1>
+  <div class="contents">
+    <h1 class="title">ランキングページ</h1>
   </div>
 </template>
 
@@ -11,4 +11,8 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.title {
+  text-align: center;
+}
+</style>

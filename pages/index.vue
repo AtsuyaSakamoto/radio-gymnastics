@@ -45,7 +45,7 @@ export default defineComponent({
   }
   .img-wrapper-second {
     text-align: center;
-    margin-top: -100px;
+    margin-top: -120px;
     .illust-img {
       width: 300px;
       height: 500px;
@@ -53,7 +53,7 @@ export default defineComponent({
   }
   .btn-wrapper {
     text-align: center;
-    margin-top: -80px;
+    margin-top: -60px;
     padding-bottom: 50px;
     .start-btn {
       width: 200px;
@@ -62,7 +62,7 @@ export default defineComponent({
       border-radius: 40px;
       background-color: skyblue;
       color: white;
-      font-size: 16px;
+      font-size: 22px;
       font-weight: bold;
       letter-spacing: 0.12em;
     }

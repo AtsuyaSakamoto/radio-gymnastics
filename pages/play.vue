@@ -9,14 +9,14 @@
       :class="{ playback: isActive }"
       @click="isActiveToggle"
     ></div>
-    <div v-if="endAudio" class="end-message">hoge</div>
+    <div v-if="endAudio" class="end-message">ここにPOPUPが来る</div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, useRouter } from '@nuxtjs/composition-api'
 import sound from '../assets/sound.mp3'
-const Freezeframe = require('freezeframe')
+const Freezeframe = require('Freezeframe')
 
 export default defineComponent({
   setup() {
@@ -46,7 +46,7 @@ export default defineComponent({
     const pushStamp = () => {
       router.push('/place')
     }
-    const endAudio = ref<boolean>(true)
+    const endAudio = ref<boolean>(false)
     audio.addEventListener('ended', () => {
       console.log('再生終わりました')
       endAudio.value = true
