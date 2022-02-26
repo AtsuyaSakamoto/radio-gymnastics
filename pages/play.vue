@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1 class="title">ラジオ体操を始める</h1>
+  <div class="contents">
+    <h1 class="title"></h1>
     <div class="movie">
       <img src="~assets/Avatar.gif" class="freezeframe" />
     </div>
@@ -58,8 +58,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.title {
-  text-align: center;
+.contents {
+  background-image: url("/taisou.png");
+  background-color: yellow;
+  background-size: cover;
+  overflow: hidden;
+  .title {
+    text-align: center;
+    padding-top: 40px;
+  }
 }
 .freezeframe {
   width: 300px;
@@ -69,12 +76,12 @@ export default defineComponent({
   margin: 0 auto;
   width: 300px;
   height: 500px;
-  background-color: yellow;
+  background-color: transparent;
   position: relative;
 }
 .btn {
   position: absolute;
-  top: 10px;
+  top: -60px;
   left: 130px;
   width: 100px; /* 幅を指定 */
   height: 60px; /* 高さを指定 */
