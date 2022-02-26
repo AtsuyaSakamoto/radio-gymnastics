@@ -29,7 +29,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .contents {
-  background-color: yellow;
+  background-color: #f1db5a;
   overflow: hidden;
   .title {
     text-align: center;

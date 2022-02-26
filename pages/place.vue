@@ -161,7 +161,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .contents {
   text-align: center;
-  background-color: yellow;
+  background-color: #f1db5a;
   overflow: hidden;
   li {
     list-style: none;
