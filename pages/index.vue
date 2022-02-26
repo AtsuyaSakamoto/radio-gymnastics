@@ -1,6 +1,6 @@
 <template>
   <div class="contents">
-    <h1 class="title">アプリタイトル</h1>
+    <!-- <h1 class="title">スマラジ</h1> -->
     <div class="img-wrapper">
       <img src="title_logo.png" class="title-img" />
     </div>
@@ -45,7 +45,7 @@ export default defineComponent({
   }
   .img-wrapper-second {
     text-align: center;
-    margin-top: -150px;
+    margin-top: -100px;
     .illust-img {
       width: 300px;
       height: 500px;
@@ -53,8 +53,8 @@ export default defineComponent({
   }
   .btn-wrapper {
     text-align: center;
-    margin-top: -120px;
-    padding-bottom: 30px;
+    margin-top: -80px;
+    padding-bottom: 50px;
     .start-btn {
       width: 200px;
       height: 50px;

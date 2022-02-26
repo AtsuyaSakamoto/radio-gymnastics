@@ -43,12 +43,16 @@ export default defineComponent({
         ff.start()
       }
     }
+    const pushStamp = () => {
+      router.push('/place')
+    }
     const endAudio = ref<boolean>(true)
     audio.addEventListener('ended', () => {
       console.log('再生終わりました')
       endAudio.value = true
+      setTimeout(pushStamp, 5000)
     })
-    return { goPlay, isActive, isActiveToggle, endAudio }
+    return { goPlay, isActive, isActiveToggle, endAudio, pushStamp }
   },
 })
 </script>
