@@ -12,7 +12,9 @@
       :class="{ playback: isActive }"
       @click="isActiveToggle"
     ></div>
-    <div v-if="endAudio" class="end-message">ここにPOPUPが来る</div>
+    <div v-if="endAudio" class="end-message">
+      <img src="taisou_popup.png" class="end-popup" />
+    </div>
   </div>
 </template>
 
@@ -73,7 +75,8 @@ export default defineComponent({
 .contents {
   background-image: url('/taisou.png');
   background-color: #f1db5a;
-  background-size: cover;
+  background-size: 390px, 844px; /* 幅を0に指定 */
+  //background-size: cover;
   overflow: hidden;
   .title {
     text-align: center;
@@ -126,7 +129,14 @@ export default defineComponent({
 }
 .end-message {
   position: relative;
-  left: 170px;
+  left: 10px;
   top: -300px;
+//  width: 360px;
+//  height: 574px;
+}
+.end-popup {
+  all: initial
+//  width: 360px;
+//  height: 574px;
 }
 </style>
