@@ -9,6 +9,7 @@
       :class="{ playback: isActive }"
       @click="isActiveToggle"
     ></div>
+    <div v-if="endAudio" class="end-message">hoge</div>
   </div>
 </template>
 
@@ -29,8 +30,8 @@ export default defineComponent({
     const goPlay = () => {
       router.push('/play')
     }
-    const isActive = ref<boolean>(false)
     const audio = new Audio(sound)
+    const isActive = ref<boolean>(false)
     const isActiveToggle = () => {
       if (isActive.value === true) {
         isActive.value = false
@@ -42,8 +43,16 @@ export default defineComponent({
         ff.start()
       }
     }
-
-    return { goPlay, isActive, isActiveToggle }
+    const pushStamp = () => {
+      router.push('/place')
+    }
+    const endAudio = ref<boolean>(true)
+    audio.addEventListener('ended', () => {
+      console.log('再生終わりました')
+      endAudio.value = true
+      setTimeout(pushStamp, 5000)
+    })
+    return { goPlay, isActive, isActiveToggle, endAudio, pushStamp }
   },
 })
 </script>
@@ -100,5 +109,10 @@ export default defineComponent({
   border-width: 0 4px 0 4px; /*線を左右に指定*/
   border-color: transparent #fff transparent #fff; /* 左右に線の色を指定 */
   transition: 0.5s; /* アニメーションの秒数を指定 */
+}
+.end-message {
+  position: relative;
+  left: 170px;
+  top: -300px;
 }
 </style>

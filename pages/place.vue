@@ -4,58 +4,40 @@
       <div class="img-wrapper">
         <img src="kaijou_header.png" class="header-img" />
       </div>
-      <div class="map-btn-wrapper">
-        <img
-          src="kaijou_nihonchizu.png"
-          class="map-btn"
-          @click="changePlaceToggle"
-        />
+      <div v-if="placeToggle">
+        <div class="map-btn-wrapper">
+          <img
+            src="kaijou_nihonchizu.png"
+            class="map-btn"
+            @click="changePlaceToggle"
+          />
+        </div>
+      </div>
+      <div v-else>
+        <div class="map-btn-wrapper">
+          <img
+            src="kaijou_back.png"
+            class="map-btn"
+            @click="changePlaceToggle"
+          />
+        </div>
       </div>
     </div>
-
     <div v-if="placeToggle">
       <div class="card-position">
-        <!-- TODOここはv-forを使ってキレイに書く -->
-        <div class="park-card" @click="goPlay">
-          <img src="park1.png" class="title-img" />
-          <div>place1</div>
-        </div>
-        <div class="park-card" @click="goPlay">
-          <img src="park2.png" class="title-img" />
-          <div>place2</div>
-        </div>
-        <div class="park-card" @click="goPlay">
-          <img src="park3.png" class="title-img" />
-          <div>place3</div>
-        </div>
-        <div class="park-card" @click="goPlay">
-          <img src="park4.png" class="title-img" />
-          <div>place4</div>
-        </div>
-        <div class="park-card" @click="goPlay">
-          <img src="park5.png" class="title-img" />
-          <div>place5</div>
-        </div>
-        <div class="park-card" @click="goPlay">
-          <img src="park6.png" class="title-img" />
-          <div>place6</div>
-        </div>
-        <div class="park-card" @click="goPlay">
-          <img src="park7.png" class="title-img" />
-          <div>place7</div>
-        </div>
-        <div class="park-card" @click="goPlay">
-          <img src="park8.png" class="title-img" />
-          <div>place8</div>
-        </div>
-        <div class="park-card" @click="goPlay">
-          <img src="park9.png" class="title-img" />
-          <div>place9</div>
-        </div>
+        <li
+          v-for="place in placeList"
+          :key="place.id"
+          class="park-card"
+          @click="goPlay"
+        >
+          <img :src="place.imageUrl" class="title-img" />
+          <div>{{ place.name }}</div>
+        </li>
       </div>
     </div>
     <div v-else>
-      <div>日本地図(イメージ)</div>
+      <h2 class="sub-header">目指せ全国制覇!!</h2>
       <img
         src="https://community.alteryx.com/t5/image/serverpage/image-id/167070iBB619376892CF7DA/image-size/medium?v=v2&px=400"
       />
@@ -64,17 +46,34 @@
       <div class="back-btn" @click="backPage">
         <img src="kaijou_back.png" width="120px" height="50px" />
       </div>
-      <div>
-        <button class="ranking-btn" @click="goRanking">ランキング</button>
+      <div class="ranking-btn">
+        <img
+          src="kaijou_ranking.png"
+          width="120px"
+          height="50px"
+          @click="goRanking"
+        />
+        <!-- <button class="ranking-btn" @click="goRanking">ランキング</button> -->
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, useRouter, ref } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  useRouter,
+  ref,
+  onBeforeMount,
+} from '@nuxtjs/composition-api'
+// import { getFirestore, collection, doc } from 'firebase/firestore'
 export default defineComponent({
   setup() {
+    onBeforeMount(() => {
+      // const docRef = doc(collection(getFirestore(), 'placelist'))
+      // placeList.value = docRef
+    })
+
     const router = useRouter()
     const goPlay = () => {
       router.push('/play')
@@ -85,7 +84,59 @@ export default defineComponent({
     const goRanking = () => {
       router.push('/ranking')
     }
-
+    type PlaceList = {
+      id: number
+      name: string
+      imageUrl: string
+    }
+    // このplaceListがFireStoreから受け取れればOK
+    const placeList = ref<PlaceList[]>([
+      {
+        id: 1,
+        name: '近所の公園',
+        imageUrl: 'park1.png',
+      },
+      {
+        id: 2,
+        name: '有名な公園',
+        imageUrl: 'park2.png',
+      },
+      {
+        id: 3,
+        name: '大きな公園',
+        imageUrl: 'park3.png',
+      },
+      {
+        id: 4,
+        name: '静かな公園',
+        imageUrl: 'park4.png',
+      },
+      {
+        id: 5,
+        name: '緑な公園',
+        imageUrl: 'park5.png',
+      },
+      {
+        id: 6,
+        name: '秘密の公園',
+        imageUrl: 'park6.png',
+      },
+      {
+        id: 7,
+        name: '綺麗な公園',
+        imageUrl: 'park7.png',
+      },
+      {
+        id: 8,
+        name: '昔遊んだ公園',
+        imageUrl: 'park8.png',
+      },
+      {
+        id: 9,
+        name: '小さな公園',
+        imageUrl: 'park9.png',
+      },
+    ])
     const placeToggle = ref<boolean>(true)
     const changePlaceToggle = () => {
       if (placeToggle.value === true) {
@@ -95,7 +146,14 @@ export default defineComponent({
       }
     }
 
-    return { goPlay, backPage, goRanking, placeToggle, changePlaceToggle }
+    return {
+      goPlay,
+      backPage,
+      goRanking,
+      placeToggle,
+      changePlaceToggle,
+      placeList,
+    }
   },
 })
 </script>
@@ -105,6 +163,9 @@ export default defineComponent({
   text-align: center;
   background-color: yellow;
   overflow: hidden;
+  li {
+    list-style: none;
+  }
   .flex {
     display: flex;
   }
@@ -135,6 +196,10 @@ export default defineComponent({
     .title-img {
       border-radius: 10px;
     }
+  }
+  .sub-header {
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
   .btn-wrapper {
     justify-content: center;

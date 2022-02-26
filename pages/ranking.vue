@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>ランキングページ</h1>
-    <p>このページは余裕があったら作る</p>
   </div>
 </template>
 
