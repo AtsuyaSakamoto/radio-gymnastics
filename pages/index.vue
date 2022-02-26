@@ -53,8 +53,8 @@ export default defineComponent({
   }
   .btn-wrapper {
     text-align: center;
-    margin-top: -60px;
-    padding-bottom: 50px;
+    margin-top: -80px;
+    padding-bottom: 70px;
     .start-btn {
       width: 200px;
       height: 50px;

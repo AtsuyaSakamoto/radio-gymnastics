@@ -59,7 +59,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .contents {
-  background-image: url("/taisou.png");
+  background-image: url('/taisou.png');
   background-color: yellow;
   background-size: cover;
   overflow: hidden;
@@ -71,6 +71,7 @@ export default defineComponent({
 .freezeframe {
   width: 300px;
   height: 500px;
+  padding-top: 6 0px;
 }
 .movie {
   margin: 0 auto;
